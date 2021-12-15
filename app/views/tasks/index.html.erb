@@ -1,9 +1,17 @@
-<div class="main tasks-index">
-  <div class="container">
-    <h1>タスク一覧</h1>
-      <% @tasks.each do |task| %>
-        <%= task.name %>
-        
-      <% end %>
-  </div>
-</div>
+<h1>タスク一覧</h1>
+<table>
+<thead>
+  <tr>
+    <th>タスク名</th>
+    <th>予定日</th>
+  </tr>
+</thead>
+<tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.scheduled_on %></td>
+      </tr>
+    <% end %>
+</tbody>
+</table>
