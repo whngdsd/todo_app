@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root "home#top"
 
   get "tasks/index" => "tasks#index"
-
+  delete "tasks/:id/destroy" => "tasks#destroy"
 end

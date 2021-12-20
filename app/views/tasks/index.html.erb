@@ -11,7 +11,8 @@
       <tr>
         <td><%= task.name %></td>
         <td><%= task.scheduled_on %></td>
-      </tr>
+        <td><%= link_to("削除","/tasks/#{task.id}/destroy",{method: "delete"}) %></td>
+        </tr>
     <% end %>
 </tbody>
 </table>
