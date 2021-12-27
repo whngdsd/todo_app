@@ -1,1 +1,14 @@
 <h1>ユーザー新規登録</h1>
+<%= form_with model: @user, url: {controller: "users", action: "new"} do |f| %>
+  <div>
+    <%= f.label :name, "名前" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.submit valuew="登録" %>
+  </div>
+<% end %>
