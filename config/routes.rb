@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # ログイン/ログアウト
+  get "login",                => "sessions#new"
+
   get "users/new"             => "users#new"
   post "users/new"            => "users#create"
   # For details on the DSL available within this file, 
