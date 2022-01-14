@@ -1,2 +1,11 @@
 <h1>TODOはじめよう</h1>
-<%= link_to("新規ユーザー登録","/users/new") %>
+<%= flash[:notice] %>
+<% if @current_user %>
+  <div>
+    <%= link_to("ログアウト", "/logout", {method: "delete"}) %>
+    <%= link_to("タスク一覧", "/tasks/index") %>
+  </div>
+<% else %>
+  <%= link_to("新規ユーザー登録","/users/new") %>
+  <%= link_to("ログイン","/login") %>
+<% end %>

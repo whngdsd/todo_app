@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user
   def index
     @tasks = Task.all
   end
@@ -7,18 +8,17 @@ class TasksController < ApplicationController
     @task = Task.new
   end
 
-  #def create
-   # @task = Task.new(
-    #  name: params[:name],
-     # scheduled_on: params[:scheduled_on]
-      #user_id: @current_user.id
-    #)
-    #if @task.save
-     # redirect_to("/tasks/index")
-    #else
-     # render("tasks/new")
-    #end
-  #end
+  def create
+    @task = Task.new(
+      name: params[:name],
+      scheduled_on: params[:scheduled_on]
+    )
+    if @task.save
+      redirect_to("/tasks/index")
+    else
+      render("tasks/new")
+    end
+  end
 
   #def edit
     
