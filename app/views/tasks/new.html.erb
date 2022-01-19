@@ -1,7 +1,7 @@
 <h1>タスク登録</h1>
-<%= form_with model: @task, url: {controller: "tasks", action: "new"} do |f| %>
+<%= form_with model: @task, url: tasks_create_path do |f| %>
   <div><%= f.label :name %></div>
   <div><%= f.text_field :name %></div>
-  <div><%= f.date_select :scheduled_on %>
+  <div><%= f.date_field :scheduled_on %>
   <div><%= f.submit value="登録" %></div>
 <% end %>

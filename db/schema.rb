@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_27_014618) do
+ActiveRecord::Schema.define(version: 2022_01_19_040556) do
 
   create_table "tasks", force: :cascade do |t|
     t.string "name"
-    t.date "scheduled_on"
+    t.date "scheduled_on", default: "2022-01-19"
     t.date "completed_on"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false

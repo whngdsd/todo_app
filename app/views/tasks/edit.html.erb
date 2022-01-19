@@ -1,6 +1,7 @@
-<h1>タスク登録</h1>
-<%= form_with model:@task do |f| %>
+<h1>タスク編集</h1>
+<%= form_with model: @task, url: "/tasks/#{@task.id}/update",local:true do |f| %>
   <div><%= f.label :name %></div>
   <div><%= f.text_field :name %></div>
-  <div><%= f.submit value="登録" %></div>
+  <div><%= f.date_field :scheduled_on %>
+  <div><%= f.submit value="更新" %></div>
 <% end %>
