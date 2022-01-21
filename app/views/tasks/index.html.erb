@@ -8,15 +8,38 @@
     <th>予定日</th>
   </tr>
 </thead>
-
 <tbody>
     <% @tasks.each do |task| %>
+      <% if task.is_completed == false %>
       <tr>
         <td><%= task.name %></td>
         <td><%= task.scheduled_on %></td>
+        <td><%= link_to("完了する？","/tasks/#{task.id}/completed",{method: "post"}) %></td>
         <td><%= link_to("編集","/tasks/#{task.id}/edit") %></td>
         <td><%= link_to("削除","/tasks/#{task.id}/destroy",{method: "delete"}) %></td>
-        </tr>
+      </tr>
+      <% end %>
+    <% end %>
+</tbody>
+</table>
+<table>
+<thead>
+  <tr>
+    <th>タスク名</th>
+    <th>完了日</th>
+  </tr>
+</thead>
+<tbody>
+    <% @tasks.each do |task| %>
+      <% if task.is_completed == true %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.completed_on %></td>
+        <td><%= link_to("未完了に戻す？","/tasks/#{task.id}/completed",{method: "post"}) %></td>
+        <td><%= link_to("編集","/tasks/#{task.id}/edit") %></td>
+        <td><%= link_to("削除","/tasks/#{task.id}/destroy",{method: "delete"}) %></td>
+      </tr>
+      <% end %>
     <% end %>
 </tbody>
 </table>

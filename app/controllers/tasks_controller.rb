@@ -42,10 +42,21 @@ class TasksController < ApplicationController
     redirect_to("/tasks/index")
   end
 
+  def completed
+    @task = Task.find(params[:id])
+    if @task.is_completed == false
+      @task.update(is_completed: true, completed_on: Date.today)
+    elsif @task.is_completed == true
+      @task.update(is_completed: false, completed_on: nil)
+    end
+
+    redirect_to("/tasks/index")
+
+  end
+
   private
 
     def task_params
       params.require(:task).permit(:name, :scheduled_on)
     end
-
 end
