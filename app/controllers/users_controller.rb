@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :forbid_login_user, {only: [:new, :create]}
-  
+  before_action :authenticate_user, {only: [:destroy]}
+
   def new
     @user = User.new
   end
@@ -12,7 +13,13 @@ class UsersController < ApplicationController
     else
       render "new"
     end
+  end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "ユーザー退会"
+    redirect_to :root
   end
 
   private

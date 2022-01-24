@@ -16,7 +16,7 @@
         <td><%= task.scheduled_on %></td>
         <td><%= link_to("完了する？","/tasks/#{task.id}/completed",{method: "post"}) %></td>
         <td><%= link_to("編集","/tasks/#{task.id}/edit") %></td>
-        <td><%= link_to("削除","/tasks/#{task.id}/destroy",{method: "delete"}) %></td>
+        <td><%= link_to("削除","/tasks/#{task.id}/destroy", method: "delete", data: {confirm: "本当に削除していい？"}) %></td>
       </tr>
       <% end %>
     <% end %>
@@ -36,8 +36,7 @@
         <td><%= task.name %></td>
         <td><%= task.completed_on %></td>
         <td><%= link_to("未完了に戻す？","/tasks/#{task.id}/completed",{method: "post"}) %></td>
-        <td><%= link_to("編集","/tasks/#{task.id}/edit") %></td>
-        <td><%= link_to("削除","/tasks/#{task.id}/destroy",{method: "delete"}) %></td>
+        <td><%= link_to("削除","/tasks/#{task.id}/destroy", method: "delete", data: {confirm: "本当に削除していい？"}) %></td>
       </tr>
       <% end %>
     <% end %>
