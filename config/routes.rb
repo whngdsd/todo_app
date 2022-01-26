@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   get     "users/new"         => "users#new"
   post    "users/create"      => "users#create"
-  
+  delete  "users/:id/destroy" => "users#destroy"
+
   get     "tasks/index"       => "tasks#index"
   get     "tasks/new"         => "tasks#new"
   post    "tasks/create"      => "tasks#create"

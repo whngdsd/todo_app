@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
   before_action :authenticate_user
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
   
   def index
-    @tasks = Task.all.order(scheduled_on: "ASC")
+    @tasks = @current_user.tasks.all.order(scheduled_on: "ASC")
   end
 
   def new
@@ -58,5 +59,13 @@ class TasksController < ApplicationController
 
     def task_params
       params.require(:task).permit(:name, :scheduled_on)
+    end
+
+    def ensure_correct_user
+      @task = Task.find_by(id: params[:id])
+      if @task.user_id != @current_user.id
+        flash[:notice] = "権限がありません"
+        redirect_to("/tasks/index")
+      end
     end
 end
