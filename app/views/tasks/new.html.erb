@@ -1,7 +1,10 @@
 <h1>タスク登録</h1>
 <%= form_with model: @task, url: tasks_create_path do |f| %>
+<%= render 'layouts/error_messages', model: f.object %>
   <div><%= f.label :name %></div>
   <div><%= f.text_field :name %></div>
   <div><%= f.date_field :scheduled_on %>
   <div><%= f.submit value="登録" %></div>
 <% end %>
+
+<%= link_to("一覧へ","/tasks/index") %>
