@@ -7,14 +7,14 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
     <% if @user.errors.include?(:name) %>
-      <p style="color: red;"><%= @user.errors.full_messages_for(:name).first %>
+    <div class="alert alert-danger" role="alert"><%= @user.errors.full_messages_for(:name).first %></div>
     <% end %>
   </div>
   <div>
     <%= f.label :email %>
     <%= f.text_field :email %>
     <% if @user.errors.include?(:email) %>
-      <p style="color: red;"><%= @user.errors.full_messages_for(:email).first %>
+    <div class="alert alert-danger" role="alert"><%= @user.errors.full_messages_for(:email).first %></div>
     <% end %>
   </div>
   <div>
@@ -24,14 +24,14 @@
     <% end %><br />
     <%= f.password_field :password %>
     <% if @user.errors.include?(:password) %>
-      <p style="color: red;"><%= @user.errors.full_messages_for(:password).first %>
+    <div class="alert alert-danger" role="alert"><%= @user.errors.full_messages_for(:password).first %></div>
     <% end %>
     </div>
   <div>
     <%= f.label :password_confirmation, "確認" %>
     <%= f.password_field :password_confirmation %>
     <% if @user.errors.include?(:password_confirmation) %>
-      <p style="color: red;"><%= @user.errors.full_messages_for(:password_confirmation).first %>
+      <div class="alert alert-danger" role="alert"><%= @user.errors.full_messages_for(:password_confirmation).first %><
     <% end %>
   </div>
   <div>

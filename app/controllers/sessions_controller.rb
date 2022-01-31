@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, notice: "ログインしました。"
     else
+      @error_txt = "入力に誤りがあるか、登録されていません。"
       render :new
     end
   end
