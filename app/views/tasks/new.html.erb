@@ -1,9 +1,24 @@
 <h1>タスク登録</h1>
 <%= form_with model: @task, url: tasks_create_path do |f| %>
-<%= render 'layouts/error_messages', model: f.object %>
-  <div><%= f.label :name %></div>
-  <div><%= f.text_field :name %></div>
-  <div><%= f.date_field :scheduled_on %>
+<!--
+  <%= render 'layouts/error_messages', model: f.object %>
+-->
+<% if @task.errors.any? %>
+<% end %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <% if @task.errors.include?(:name) %>
+    <p style="color: red;"><%= @task.errors.full_messages_for(:name).first %>
+    <% end %>
+  </div>
+  <div>
+    <%= f.label :scheduled_on%>
+    <%= f.date_field :scheduled_on %>
+    <% if @task.errors.include?(:scheduled_on) %>
+    <p style="color: red;"><%= @task.errors.full_messages_for(:name).first %>
+    <% end %>
+  </div>
   <div><%= f.submit value="登録" %></div>
 <% end %>
 

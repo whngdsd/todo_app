@@ -7,3 +7,6 @@ ja:
         name: 名前
         password: パスワード
         password_confirmation: 確認
+      task:
+        name: タスク名
+        scheduled_on: 予定日
