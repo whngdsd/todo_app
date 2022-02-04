@@ -5,14 +5,14 @@
 
   <div>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: ["form-control","h-25","d-inline-block","w-50 p-3"] %>
     <% if @user.errors.include?(:name) %>
     <div class="alert alert-danger" role="alert"><%= @user.errors.full_messages_for(:name).first %></div>
     <% end %>
   </div>
   <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.label :email, class: ["col-sm-2", "col-form-label"] %>
+    <%= f.text_field :email, class: ["form-control","form-control-sm"] , placeholder: "name@example.com" %>
     <% if @user.errors.include?(:email) %>
     <div class="alert alert-danger" role="alert"><%= @user.errors.full_messages_for(:email).first %></div>
     <% end %>
@@ -27,6 +27,7 @@
     <div class="alert alert-danger" role="alert"><%= @user.errors.full_messages_for(:password).first %></div>
     <% end %>
     </div>
+  </div>
   <div>
     <%= f.label :password_confirmation, "確認" %>
     <%= f.password_field :password_confirmation %>
