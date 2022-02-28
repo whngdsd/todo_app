@@ -1,5 +1,5 @@
 <div class="container">
-<h1>TODOはじめよう</h1>
+<h1>TODOはじめましょう</h1>
 </div>
 <%= flash[:notice] %>
 <% if @current_user %>
@@ -10,7 +10,13 @@
     </div>
 <% else %>
 <div class="container">
-  <%= link_to("新規ユーザー登録","/users/new", class:"btn btn-primary") %>
-  <%= link_to("ログイン","/login", class:"btn btn-primary") %>
-<% end %>
+  <div class="row">
+    <div class="col-xl-12">
+      <%= link_to("新規ユーザー登録","/users/new", class:"btn btn-primary btn-info mx-auto d-block") %>
+    </div>
+    <div class="col-xl-12">
+      <%= link_to("ログイン","/login", class:"btn btn-primary btn-info mx-auto d-block") %>
+    </div>
+  </div>
 </div>
+<% end %>
